@@ -13,8 +13,6 @@ def factorial(n):
 
 
 def factorial_iterative(n):
-    # TODO: implement the factorial function iteratively here
-    # pass
     product = 1 
     for i in range(n):
         product = product * (i + 1)
