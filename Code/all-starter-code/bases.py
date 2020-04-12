@@ -1,6 +1,7 @@
 #!python
 
 import string
+import sys
 # Hint: Use these string constants to encode/decode hexadecimal digits and more
 # string.digits is '0123456789'
 # string.hexdigits is '0123456789abcdefABCDEF'
@@ -17,16 +18,28 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    pass
-# TODO: Decode digits from binary (base 2)
-#binary to base 10
+
+# TODO: Decode digits from binary (base 2) - binary to base10 
 n = input("Enter binary:")
-BaseTen = s = 0
+BaseTen = e = 0 
 for i in range(len(n)-1, -1, -1):
-    BaseTen = BaseTen + int(n[i] *2 ** s)
-    s = s +1 
+    BaseTen = BaseTen + int(n[i] * 2 ** e)
+    e = e +1 
 print(f"Base number is : {BaseTen}")
-# TODO: Decode digits from hexadecimal (base 16)
+
+
+# TODO: Decode digits from hexadecimal (base 16) - hexa to base10
+hexidict = {'0':0, '1':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, 'a':10,'b':11, 'c':12, 'd':13, 'e':14, 'f':15}
+hs = 0
+hexNum = sys.argv[::-1]
+print(len(hexNum))
+i = 0 
+power = len(hexNum)
+while i < len(hexNum):
+    hs = hexidict.get(hexNum[i]) * 16 ** (power - 1) + hs
+    i +=1 
+    power -=1
+print(hs)
 
 # TODO: Decode digits from any base (2 up to 36)
 
@@ -40,9 +53,10 @@ def encode(number, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
-pass
+
+
 # TODO: Encode number in binary (base 2)
-#base 10 to binary
+#base 10 to binary - YES
 n = int(input("Enter decimal:"))
 bs = ''
 while n != 0:
@@ -51,8 +65,9 @@ while n != 0:
 print('Binary number is:')
 for i in range(len(bs) -1, -1, -1):
     print(bs[i], end= '')
+
 # TODO: Encode number in hexadecimal (base 16)
-#base 10 to hexadecimal
+#base 10 to hexadecimal - YES 
 n = int(input("Enter decimal:"))
 hs = ''
 while n != 0:
@@ -72,9 +87,9 @@ while n != 0:
     else:
         hs = hs + str(remainder_value)
     n = n//16
-print('hex number is:') 
 for i in range(len(hs)-1, -1, -1):
     print(hs[i], end= '')
+
 # TODO: Encode number in any base (2 up to 36)
 
 
@@ -87,15 +102,17 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-    pass
-    # TODO: Convert digits from base 2 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
+    
+    decoded = decode(digits, base1)
+    return encode(decoded, base2)
+# TODO: Convert digits from base 2 to base 16 (and vice versa)
+# ...
+# TODO: Convert digits from base 2 to base 10 (and vice versa)
+# ...
+# TODO: Convert digits from base 10 to base 16 (and vice versa)
+# ...
+# TODO: Convert digits from any base to any base (2 up to 36)
+# ...
 
 
 def main():
