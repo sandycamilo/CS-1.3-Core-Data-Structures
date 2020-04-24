@@ -9,9 +9,12 @@ def reverse_string(text):
 
     reversed_string = "" 
     while len(my_stack) != 0: # while stack is not empty
-        reversed_string += my_stack.pop(-1) # contatenate each letter on the stack to the string ~ 
+        reversed_string += my_stack.pop(-1) # concatenate each letter on the stack to the string ~ 
                                             # the last letter pushed to stack is the first letter we can access now
 
     return reversed_string
 
 print(reverse_string("abc"))
+print(reverse_string("918261008"))
+print(reverse_string("thehouseisblue"))
+print(reverse_string("0.9\n0.0\n711.9"))
