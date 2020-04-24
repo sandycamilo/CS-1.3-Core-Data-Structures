@@ -1,4 +1,4 @@
-# # function that will reverse a string using a stack
+### function that will reverse a string using a stack ###
 
 def reverse_string(text):
     my_stack = [] # set a stack using a list or array  
@@ -9,8 +9,8 @@ def reverse_string(text):
 
     reversed_string = "" 
     while len(my_stack) != 0: # while stack is not empty
-        reversed_string += my_stack.pop(-1) # contactenate each letter on the stack to the string ~ 
-                                        # the last letter pushed to stack is the first letter we can access now
+        reversed_string += my_stack.pop(-1) # contatenate each letter on the stack to the string ~ 
+                                            # the last letter pushed to stack is the first letter we can access now
 
     return reversed_string
 
