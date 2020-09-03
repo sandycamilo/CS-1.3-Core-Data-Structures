@@ -18,11 +18,20 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # TODO: Decode digits from binary (base 2)
-    # ...
+    # binary to base 10 
+    # 101 --> 1 * 2^2 + 0 * 2^1 + 1 * 2^0 --> 1 * 4 + 0 * 2 + 1 * 1 --> 4 + 0 + 1 --> 5
+    # read it right to left , rightmost is 0 , reverse digits 
+    count = 0 
+    
+
     # TODO: Decode digits from hexadecimal (base 16)
-    # ...
+    # hexadecimal to base 10 
+    # D3F2 --> 13 * 16^3  + 3 * 16^2 + 15 * 16^1 + 2 * 16^0 --> 13 * 48 + 3 * 32 + 15 * 16 + 2 * 1 --> 624 + 96 + 240 + 2 --> 961 
+
+
     # TODO: Decode digits from any base (2 up to 36)
-    # ...
+    # Any base to base 10 
+
 
 
 def encode(number, base):
